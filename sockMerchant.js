@@ -28,7 +28,7 @@ function solution(n, socks) {
   });
 
   for (const item in obj) {
-    if (obj[item] >=2) {
+    if (obj[item] >= 2) {
       const result = obj[item] / 2;
       cont += Math.floor(result);
     }
@@ -36,9 +36,9 @@ function solution(n, socks) {
   return cont;
 }
 
-const n= 9;
+const n = 9;
 const socks = [10, 20, 20, 10, 10, 30, 50, 10, 20];
-const socks1 = [1,2,1,2,1,3,2];
+const socks1 = [1, 2, 1, 2, 1, 3, 2];
 const result = solution(n, socks1);
 
 console.log(result);
