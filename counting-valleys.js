@@ -13,7 +13,6 @@
 // The second line contains a single string , of  characters that describe his path.
 // Constraints
 
-
 // Output Format
 // Print a single integer that denotes the number of valleys Gary walked through during his hike.
 // Sample Input
@@ -27,7 +26,7 @@ function solve(n, steps) {
   let counter = 0;
   let result = 0;
 
-  for (let i=0; i<s.length; i++) {
+  for (let i = 0; i < s.length; i++) {
     const item = s[i];
     if (item === 'U') {
       counter++;
@@ -35,7 +34,7 @@ function solve(n, steps) {
       counter--;
     }
 
-    if(counter === 0 && item === 'U') {
+    if (counter === 0 && item === 'U') {
       result++;
     }
   }
@@ -43,13 +42,11 @@ function solve(n, steps) {
   return result;
 }
 
-
-
-const n= 9;
-const steps = 'UDDDUDUU';//1
-const steps1 = 'DDUUUUDD';//1
-const steps2 ='UDUDDDUUDDUU'//2
-const steps3 = 'DDUUDDUDUUUD' //2
+const n = 9;
+const steps = 'UDDDUDUU'; // 1
+const steps1 = 'DDUUUUDD'; // 1
+const steps2 = 'UDUDDDUUDDUU'; // 2
+const steps3 = 'DDUUDDUDUUUD'; // 2
 const result = solve(8, steps);
 
 console.log(result);
