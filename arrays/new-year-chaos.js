@@ -45,21 +45,18 @@
 function minimumBribes(q) {
   let bribe = 0;
   let chaotic = false;
-  const minBribe = [];
+  let minBribe;
 
-  for (let k = 2; k < q.length; k += 2) {
-    const elementK = q[k];
-
-    for (let i = 0; i < elementK.length; i++) {
+    for (let i = 0; i < q.length; i++) {
       const position = i + 1;
-      const elementI = elementK[i];
+      const elementI = q[i];
 
       if (elementI - position >= 3) {
         chaotic = true;
-        minBribe.push('Too chaotic');
+        minBribe = 'Too chaotic';
       } else {
         for (let j = Math.max(0, elementI - 2); j < i; j++) {
-          const elementJ = elementK[j];
+          const elementJ = q[j];
           if (elementJ > elementI) {
             bribe++;
           }
@@ -67,18 +64,13 @@ function minimumBribes(q) {
       }
     }
     if (!chaotic) {
-      minBribe.push(bribe);
+      minBribe = bribe;
     }
-    chaotic = false;
-    bribe = 0;
-  }
-  return minBribe;
+    return minBribe;
 }
 
-const aa = [[2], [5], [2, 1, 5, 3, 4], [5], [2, 5, 1, 3, 4]];
-const bb = [[2], [8], [5, 1, 2, 3, 7, 8, 6, 4], [8], [1, 2, 5, 3, 7, 8, 6, 4]];
-const cc = [[1], [8], [1, 2, 5, 3, 4, 7, 8, 6]];
-
-console.log(minimumBribes(aa)); // 3, too chaotic
-console.log(minimumBribes(bb)); // too chaotic, 7
-console.log(minimumBribes(cc)); // 4
+console.log(minimumBribes([2, 5, 1, 3, 4])); // too chaotic
+console.log(minimumBribes([5, 1, 2, 3, 7, 8, 6, 4])); // too chaotic
+console.log(minimumBribes([2, 1, 5, 3, 4])); // 3
+console.log(minimumBribes([1, 2, 5, 3, 7, 8, 6, 4])); // 7
+console.log(minimumBribes([1, 2, 5, 3, 4, 7, 8, 6])); // 4
