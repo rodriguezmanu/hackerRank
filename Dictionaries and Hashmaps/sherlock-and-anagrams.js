@@ -16,8 +16,6 @@
 
 // Constraints
 
-
-
 // String  contains only lowercase letters  ascii[a-z].
 
 // Output Format
